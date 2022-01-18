@@ -135,9 +135,9 @@ EMAIL_HOST_USER= 'rdxxyz.1212@gmail.com'
 EMAIL_HOST_PASSWORD='Divyabharti12'
 EMAIL_USE_TLS= True
 # Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field# 
 LOGIN_REDIRECT_URL='/' 
-LOGOUT_REDIRECT_URL='/logout'
+LOGOUT_REDIRECT_URL='/logout' 
 
 PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',

@@ -22,9 +22,9 @@ from django.contrib.auth.models import User
 class SignupForm(ModelForm):
     class Meta:
         model=User
-        fields=['first_name','last_name','email','username','password','password']
+        fields=['username','first_name','last_name','email','password']
         labels={'username':' Enter User Name','password':' Enter Password','email':'Enter Email','first_name':'Enter First Name','last_name':'Enter Last Name'}
-        widgets={'password':forms.PasswordInput,'username':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Your User Name'}),
+        widgets={'username':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter Your User Name'}),
         'password':forms.PasswordInput(attrs={'class':'form-control','placeholder':'Enter Your Password'}),
         'email':forms.EmailInput(attrs={'class':'form-control','placeholder':'Enter Your Email'}),
         'first_name':forms.TextInput(attrs={'class':'form-control','placeholder':'Enter First Name'}),

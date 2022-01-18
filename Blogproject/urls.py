@@ -19,12 +19,12 @@ from Blog import views
 
 urlpatterns =[
     path('admin/', admin.site.urls),  
-    path('', views.post_view ,name='home'),
+    path('', views.post_view ),
     path('accounts/',include('django.contrib.auth.urls')), 
     path('tag/<str:tag_slug>/', views.post_view ,name= 'tag_by_name'),
     path('<int:year>/<int:month>/<int:day>/<slug:post>/', views.post_detail_view,name='post_detail'),
     path('shareBy_email/<slug:id>/',views.email_send_view , name='send_By_Mail'),
-    path('signup/', views.signup_form,name='signup'), 
+    path('signup/',views.signup_form,name='signup/'), 
     path('logout/', views.logout_view), 
     
 ]

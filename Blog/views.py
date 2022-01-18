@@ -60,7 +60,6 @@ def email_send_view(request,id):
         form=EmailsendForm()
     return render(request,'blog/emailshare.html',{'form':form,'post':post,'sent':sent})
 from Blog.forms import SignupForm
-from django.contrib.auth import authenticate,login
 from django.http import HttpResponseRedirect
 def signup_form(request): 
     form=SignupForm() 
@@ -68,13 +67,10 @@ def signup_form(request):
        form=SignupForm(request.POST) 
        if form.is_valid():
          user=form.save() 
-         user.refresh_from_db()  
-        # load the profile instance created by the signal
-         user.save()
-         raw_password = form.cleaned_data.get('password')
-         user = authenticate(username=user.username, password=raw_password)
-         login(request, user)
-         return HttpResponseRedirect("/accounts/login") 
-    return render(request,'blog/signup.html',{'form':form}) 
+         user.set_password(user.password) 
+         user.save() 
+         return HttpResponseRedirect('/accounts/login/') 
+    else:
+        return render(request,'blog/signup.html',{'form':form})
 def logout_view(request): 
     return render(request,'blog/logout.html') 
